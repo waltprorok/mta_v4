@@ -1,0 +1,44 @@
+{% extends "base-mta.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+
+<div id="hideNavBar" class="container reg-padding">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <a href="/">
+                <img class="img-responsive center-block" src="{% static 'marketing/img/logo1.png' %}"
+                     alt="sign-in-logo"/>
+            </a>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Sign Into Your Account</div>
+                    <div class="panel-body">
+                        {% if form.errors %}
+                        <p class="text-center"> Your username and password didn't match. Please try again.</p>
+                        {% else %}
+                        {% endif %}
+
+                        <div class="login-form">
+                            <form action="{% url 'login' %}" method="post" novalidate>
+                                {% csrf_token %}
+                                {{ form|crispy }}
+
+                                <input type="hidden" name="text" value="{{ next }}"/>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Sign In
+                                </button>
+                            </form>
+                            <p class="text-right"><a class="btn btn-link" href="{% url 'password_reset' %}">Forgot
+                                password?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

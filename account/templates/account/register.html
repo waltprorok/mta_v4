@@ -1,0 +1,57 @@
+{% extends "base-mta.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}Create an account{% endblock %}
+{% block content %}
+
+<div id="hideNavBar" class="container reg-padding">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <a href="/">
+                <img class="img-responsive center-block" src="{% static 'marketing/img/logo1.png' %}"
+                     alt="sign-in-logo"/>
+            </a>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Sign Up Here</div>
+                    <div class="panel-body">
+                        <div class="col-md-8 col-md-offset-2">
+                            <form action="" method="post" novalidate>
+                                {{ user_form|crispy }}
+                                {% csrf_token %}
+                                <div class="text-center">
+                                    <input type="checkbox" name="terms" value="1" id="terms" class="form-check-input">
+                                    <label for="terms" class="form-check-label"> &nbsp;I agree to the
+                                        <a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>.
+                                    </label>
+                                </div>
+                                <p><input id="signup" class="btn btn-primary btn-block" type="submit" value="Sign Up" disabled></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Payment Questions</div>
+                <div class="panel-body">
+                    <p><b>Do I have to give my credit card information to use the 30-Day free trial?</b></p>
+                    <p>Definitely not. We only expect you to submit your card info once you've tried the
+                        service and decide to continue using it. Once you submit your payment info, your card
+                        will be charged at that time, and the free period will end.</p>
+                    <p><b>How do I cancel my account?</b></p>
+                    <p>You can cancel at any time from the "Account" page after you login. There are no
+                        cancellation fees or other hidden charges. Everything is month to month.</p>
+                    <p><b>What types of payment do you accept?</b></p>
+                    <p>We accept all major credit cards (Visa, Mastercard, Amex, etc.) as well as Paypal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

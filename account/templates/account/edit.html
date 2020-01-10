@@ -1,0 +1,89 @@
+{% extends "base-dashboard.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Edit your account{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+
+        {% include "tabs.html" %}
+
+        <div class="card">
+            <div class="card-header bg-light">
+                Contact Information
+            </div>
+
+            <div class="card-body">
+                <p>Use the form below to change your studio settings.</p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.studio_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.phone|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ user_form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ user_form.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ user_form.email|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.media }}
+                            {{ profile_form.date_of_birth|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.address_1|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.address_2|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.city|as_crispy_field }}
+
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ profile_form.state|as_crispy_field }}
+
+                        </div>
+                        <div class="form-group col-md-2 mb-0">
+                            {{ profile_form.zip_code|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ profile_form.photo|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {% if user.profile.photo %}
+                            <lablel>Studio Logo</lablel>
+                            <div class="text-left">
+                                <img class="img-thumbnail rounded" src="/media/{{ user.profile.photo }}" width="200">
+                            </div>
+                            {% else %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br/>
+                    <p><input class="btn btn-primary" type="submit" value="Save Changes"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

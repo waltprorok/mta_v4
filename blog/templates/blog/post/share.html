@@ -1,0 +1,40 @@
+{% extends "base-mta.html" %}
+{% block title %}Share a post{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container" id="blog">
+    <div class="row">
+        {% if sent %}
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Email Blog</div>
+                    <div class="panel-body">
+                        <h4>E-mail successfully sent</h4>
+                        <p>"{{ post.title }}" was successfully sent {{ form.cleaned_data.to }}.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Share Blog Post</div>
+                    <div class="panel-body">
+                        <h4>Article "{{ post.title }}" </h4>
+                        <br />
+                        <form method="post" action="." novalidate>
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <input class="btn btn-primary" type="submit" value="Send e-mail">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

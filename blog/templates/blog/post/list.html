@@ -1,0 +1,45 @@
+{% extends "base-mta.html" %}
+{% load blog_tags %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+<div class="container" id="blog">
+    <div class="row">
+        <div class="section-header text-center sm-padding">
+            <h2 class="title">Welcome to our Blog</h2>
+        </div>
+
+        {% if tag %}
+        <h3 class="text-center">Blog Post tagged with "{{ tag.name }}"</h3>
+        {% endif %}
+
+        {% for post in posts %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                {% if post.image %}
+                <a href="{{ post.get_absolute_url }}">
+                    <img src="{{ post.image.url }}" alt="{{ post.image.url }}">
+                </a>
+                {% endif %}
+                <div class="caption">
+                    <h3>{{ post.title }}</h3>
+                    <div class="blog-content">
+                        <ul class="blog-meta">
+                            <li><small><b>{{ post.author.get_full_name }}</b></small></li>
+                            <li><small>{{ post.publish|date:'F d, Y' }}</small></li>
+                        </ul>
+                        <p>{{ post.body|markdown|truncatewords_html:34 }}</p>
+                        <p><a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="text-center">{% include "pagination.html" with page=posts %}</div>
+    </div>
+</div>
+
+{% endblock %}

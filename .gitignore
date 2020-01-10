@@ -1,0 +1,15 @@
+### IDE ###
+.idea
+### VIRTUAL ENV ###
+venv
+__pycache__/
+### MEDIA FILES ###
+#media
+### Django ###
+*.log
+*.pot
+*.pyc
+settings_local.py
+### SQLITE ###
+db.sqlite3
+mta/settings.py

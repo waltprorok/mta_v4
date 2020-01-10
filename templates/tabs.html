@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link {% if request.get_full_path == '/account/edit/' %} active {% else %} {% endif %}"
+           id="account"
+           href="/account/edit">Studio</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link
+        {% if request.get_full_path == '/account/password/' or request.get_full_path == '/account/password_change/done/' %} active {% else %} {% endif %}"
+           id="password"
+           href="/account/password">Password</a>
+    </li>
+</ul>

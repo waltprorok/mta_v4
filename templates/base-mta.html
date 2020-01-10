@@ -1,0 +1,176 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Music Teachers Aid is an automated studio for music teachers.">
+    <meta name="author" content="Walter Prorok (@waltprorok)">
+    <meta name="keywords" content="music teacher software, music teacher web app, music teacher saas product">
+
+    <title>MusicTeachersAid - {% block title %}{% endblock %}</title>
+
+    <!-- Favicons -->
+    <link href="{% static 'marketing/img/favicon-mta.png' %}" rel="icon">
+    <link href="{% static 'marketing/img/apple-touch-icon-mta.png' %}" rel="apple-touch-icon">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="{% static 'marketing/css/bootstrap.min.css' %}"/>
+
+    <!-- Owl Carousel -->
+    <link type="text/css" rel="stylesheet" href="{% static 'marketing/css/owl.carousel.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'marketing/css/owl.theme.default.css' %}"/>
+
+    <!-- Magnific Popup -->
+    <link type="text/css" rel="stylesheet" href="{% static 'marketing/css/magnific-popup.css' %}"/>
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="{% static 'marketing/css/font-awesome.min.css' %}"/>
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="{% static 'marketing/css/style.css' %}"/>
+
+    <!-- JQuery Dependency v2.2.4 -->
+    <script type="text/javascript" src="{% static 'marketing/js/jquery.min.js' %}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <!-- Nav -->
+    <nav id="nav" class="navbar fixed-top nav-transparent">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <!-- Logo -->
+                    <div class="navbar-brand">
+                        <a href="/">
+                            <img class="logo" src="{% static 'marketing/img/logo1.png' %}" alt="logo">
+                            <img class="logo-alt" src="{% static 'marketing/img/logo-alt1.png' %}" alt="logo">
+                        </a>
+                    </div>
+                    <!-- /Logo -->
+
+                    <!-- Collapse nav button -->
+                    <div class="nav-collapse">
+                        <span></span>
+                    </div>
+                    <!-- /Collapse nav button -->
+                </div>
+
+                <!--  Main navigation  -->
+                <ul class="main-nav nav navbar-nav navbar-right">
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#testimonials">Testimonials</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                           aria-haspopup="true" v-pre> Account</a>
+                        <ul class="dropdown">
+                            <li class="disabled"><a href="#">{{ request.user.get_full_name }}</a></li>
+                            <li><a href="{% url 'dashboard' %}"> Dashboard </a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+                <!-- /Main navigation -->
+            </div>
+        </div>
+    </nav>
+    <!-- /Nav -->
+</header>
+<!-- /Header -->
+<div class="container">
+    <div class="sm-padding"></div>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+    <!-- Footer -->
+    <footer id="footer" class="sm-padding bg-dark">
+        <!-- Container -->
+        <div class="container">
+            <!-- Row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- footer logo -->
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="{% static 'marketing/img/logo-alt1.png' %}" alt="logo"></a>
+                    </div>
+                    <!-- /footer logo -->
+                    <!-- footer follow -->
+                    <ul class="footer-follow">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                    <!-- /footer follow -->
+                    <!-- footer copyright -->
+                    <div class="footer-copyright">
+                        <p>Copyright &copy; {% now "Y" %}. All Rights Reserved. Designed by
+                            <a href="/" target="_blank">Music Teachers Aid, LLC</a></p>
+                    </div>
+                    <!-- /footer copyright -->
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </footer>
+    <!-- /Footer -->
+</footer>
+
+<!-- Back to top -->
+<div id="back-to-top"></div>
+<!-- /Back to top -->
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!-- /Preloader -->
+
+<!-- jQuery Plugins -->
+
+<script type="text/javascript" src="{% static 'marketing/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'marketing/js/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'marketing/js/jquery.magnific-popup.js' %}"></script>
+<script type="text/javascript" src="{% static 'marketing/js/main.js' %}"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146819127-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-146819127-1');
+</script>
+
+</body>
+</html>
