@@ -98,7 +98,7 @@ class ProfileEditForm(forms.ModelForm):
     state = forms.ChoiceField(required=False, choices=sorted(STATES, key=itemgetter(0)),)
     zip_code = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Zip Code'}))
     phone = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': '123-456-7890'}))
-    photo = forms.ImageField(required=False, label="Studio Logo Upload")
+    photo = forms.ImageField(required=False, label="Upload Logo")
 
     class Meta:
         model = Profile
