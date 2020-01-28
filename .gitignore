@@ -11,4 +11,4 @@ __pycache__/
 *.pyc
 settings_local.py
 ### SQLITE ###
-db.sqlite3
+#db.sqlite3
