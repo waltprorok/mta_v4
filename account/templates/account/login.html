@@ -7,8 +7,9 @@
 <div id="hideNavBar" class="container reg-padding">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <a href="/">
-                <img class="img-responsive center-block" src="{% static 'marketing/img/logo1.png' %}" alt="sign-in-logo"/>
+            <a href="{% url 'home:index' %}">
+                <img class="img-responsive center-block" src="{% static 'marketing/img/logo1.png' %}"
+                     alt="sign-in-logo"/>
             </a>
             <p class="text-center">Not a member yet? <a href="/pricing">Click here</a> to join our community.</p>
 
@@ -21,9 +22,10 @@
                             {{ form|crispy }}
 
                             <button type="submit" class="btn btn-primary btn-block">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i> Log In
+                                 Login
                             </button>
-                            <p class="text-right"><a class="btn btn-link" href="{% url 'password_reset' %}">Forgot password?</a></p>
+                            <p class="text-right"><a class="btn btn-link" href="{% url 'password_reset' %}">Forgot
+                                password?</a></p>
                         </form>
                     </div>
                 </div>

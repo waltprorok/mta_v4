@@ -7,11 +7,11 @@
 <div id="hideNavBar" class="container reg-padding">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-            <a href="/">
+            <a href="{% url 'home:index' %}">
                 <img class="img-responsive center-block" src="{% static 'marketing/img/logo1.png' %}"
                      alt="sign-in-logo"/>
             </a>
-            <p class="text-center">Already a member? <a href="/account/login"><u>Sign In</u></a></p>
+            <p class="text-center">Already a member? <a href="{% url 'login' %}"><u>Sign In</u></a></p>
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading">Register as a New User</div>
@@ -23,10 +23,12 @@
                                 <div class="text-center">
                                     <input type="checkbox" name="terms" value="1" id="terms" class="form-check-input">
                                     <label for="terms" class="form-check-label"> &nbsp;I agree to the
-                                        <a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>.
+                                        <a href="{% url 'home:terms' %}" target="_blank">Terms of Service</a> and <a
+                                                href="{% url 'home:privacy' %}" target="_blank">Privacy Policy</a>.
                                     </label>
                                 </div>
-                                <p><input id="signup" class="btn btn-primary btn-block" type="submit" value="Sign Up" disabled></p>
+                                <p><input id="signup" class="btn btn-primary btn-block" type="submit" value="Sign Up"
+                                          disabled></p>
                             </form>
                         </div>
                     </div>

@@ -161,7 +161,7 @@ EMAIL_HOST_PASSWORD = '21bd709503adb9'
 EMAIL_PORT = '2525'
 
 LOGIN_REDIRECT_URL = 'dashboard'
-LOGOUT_REDIRECT_URL = '/account/login/'
+LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 

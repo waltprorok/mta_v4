@@ -8,4 +8,9 @@
         {% if request.get_full_path == '/account/password/' or request.get_full_path == '/account/password_change/done/' %} active {% else %} {% endif %}"
            id="password" href="/account/password">Password</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link
+        {% if request.get_full_path == '#' or request.get_full_path == '#' %} active {% else %} {% endif %}"
+           id="payments" href="#">Payments</a>
+    </li>
 </ul>

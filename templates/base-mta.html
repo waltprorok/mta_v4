@@ -9,7 +9,11 @@
     <meta name="author" content="Walter Prorok (@waltprorok)">
     <meta name="keywords" content="music teacher software, music teacher web app, music teacher saas product">
 
-    <title>MusicTeachersAid - {% block title %}{% endblock %}</title>
+    {% if request.get_full_path != '/' %}
+    <title>{% block title %}{% endblock %} - MusicTeachersAid</title>
+    {% else %}
+    <title>MusicTeachersAid</title>
+    {% endif %}
 
     <!-- Favicons -->
     <link href="{% static 'marketing/img/favicon-mta.png' %}" rel="icon">
@@ -55,7 +59,7 @@
                 <div class="navbar-header">
                     <!-- Logo -->
                     <div class="navbar-brand">
-                        <a href="/">
+                        <a href="{% url 'home:index' %}">
                             <img class="logo" src="{% static 'marketing/img/logo1.png' %}" alt="logo">
                             <img class="logo-alt" src="{% static 'marketing/img/logo-alt1.png' %}" alt="logo">
                         </a>
@@ -170,6 +174,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-146819127-1');
+
 </script>
 
 </body>
