@@ -1,6 +1,6 @@
 ## MTA - Django Web App
 
-Django v2.2.8
+Django v2.2
 
 Dependencies: requirements.txt
 
