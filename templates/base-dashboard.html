@@ -53,29 +53,22 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">
-                    <img src="{% static 'webapp/imgs/avatar-1.png' %}" class="avatar avatar-sm" alt="logo">
+                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                    <!--                    <img src="{% static 'webapp/imgs/avatar-1.png' %}" class="avatar avatar-sm" alt="logo">-->
                     <span class="small ml-1 d-md-down-none">{{ user.first_name }}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-header">Account</div>
-
                     <a href="#" class="dropdown-item">
-                        <i class="fa fa-user"></i> Profile
-                    </a>
-
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-envelope"></i> Messages
-                    </a>
-
-                    <div class="dropdown-header">Settings</div>
-
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-bell"></i> Notifications
+                        <i class="fa fa-calculator"></i> Account
                     </a>
 
                     <a href="{% url 'edit' %}" class="dropdown-item">
                         <i class="fa fa-wrench"></i> Settings
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-life-ring"></i> Support
                     </a>
 
                     <a href="{% url 'logout' %}" class="dropdown-item">
@@ -258,7 +251,6 @@
             {% endblock %}
         </div>
     </div>
-
 </div>
 
 <script src="{% static 'webapp/vendor/popper.js/popper.min.js' %}"></script>
