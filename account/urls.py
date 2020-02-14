@@ -25,4 +25,5 @@ urlpatterns = [
     path('edit/', views.edit, name='edit'),
     # dashboard
     path('', views.dashboard, name='dashboard'),
+
 ]
