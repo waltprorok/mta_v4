@@ -4,80 +4,79 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col-md-12">
-        <h2>Studio Settings</h2>
-        {% include "tabs.html" %}
-        <div class="card">
-            <div class="card-header bg-light">Studio Information</div>
-            <div class="card-body">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="form-group col-md-12 mb-0">
-                            {{ profile_form.studio_name|as_crispy_field }}
-                        </div>
+<div class="col-md-12">
+    <h2>Studio Settings</h2>
+    {% include "tabs.html" %}
+    <div class="card">
+        <div class="card-header bg-light">Studio Information</div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-12 mb-0">
+                        {{ profile_form.studio_name|as_crispy_field }}
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ user_form.first_name|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ user_form.last_name|as_crispy_field }}
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ user_form.first_name|as_crispy_field }}
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4 mb-0">
-                            {{ user_form.email|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            {{ profile_form.phone|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            {{ profile_form.media }}
-                            {{ profile_form.date_of_birth|as_crispy_field }}
-                        </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ user_form.last_name|as_crispy_field }}
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ profile_form.address_1|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ profile_form.address_2|as_crispy_field }}
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ user_form.email|as_crispy_field }}
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4 mb-0">
-                            {{ profile_form.city|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            {{ profile_form.state|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            {{ profile_form.zip_code|as_crispy_field }}
-                        </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ profile_form.phone|as_crispy_field }}
                     </div>
-                    <hr/>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ profile_form.photo|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {% if user.profile.photo %}
-                            <lablel>Studio Logo</lablel>
-                            <div class="form-group">
-                                <img class="img-thumbnail" src="/media/{{ user.profile.photo }}" width="400">
-                            </div>
-                            {% else %}
-                            {% endif %}
-                        </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ profile_form.media }}
+                        {{ profile_form.date_of_birth|as_crispy_field }}
                     </div>
-                    <br/>
-                    <p><input class="btn btn-primary" type="submit" value="Save Changes"></p>
-                </form>
-            </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ profile_form.address_1|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ profile_form.address_2|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ profile_form.city|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ profile_form.state|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ profile_form.zip_code|as_crispy_field }}
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ profile_form.photo|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {% if user.profile.photo %}
+                        <lablel>Studio Logo</lablel>
+                        <div class="form-group">
+                            <img class="img-thumbnail" src="/media/{{ user.profile.photo }}" width="400">
+                        </div>
+                        {% else %}
+                        {% endif %}
+                    </div>
+                </div>
+                <br/>
+                <p><input class="btn btn-primary" type="submit" value="Save Changes"></p>
+            </form>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

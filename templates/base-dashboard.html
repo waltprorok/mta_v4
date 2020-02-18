@@ -247,8 +247,10 @@
     <div class="content">
         <div class="container-fluid">
             {% bootstrap_messages %}
-            {% block content %}
-            {% endblock %}
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 </div>
@@ -265,6 +267,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-146819127-1');
+
+
 
 </script>
 </body>
