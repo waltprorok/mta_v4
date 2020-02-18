@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'home.apps.HomeConfig',
+    'cal.apps.CalConfig',
     'taggit',
 
 ]

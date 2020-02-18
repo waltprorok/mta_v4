@@ -13,9 +13,10 @@
     <link href="{% static 'marketing/img/favicon-mta.png' %}" rel="icon">
     <link href="{% static 'marketing/img/apple-touch-icon-mta.png' %}" rel="apple-touch-icon">
 
-    <link rel="stylesheet" href="{% static 'webapp/vendor/simple-line-icons/css/simple-line-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'webapp/vendor/font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'webapp/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/vendor/simple-line-icons/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/vendor/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/styles.css' %}">
+
     <!-- jQuery -->
     <script src="{% static 'webapp/vendor/jquery/jquery.min.js' %}"></script>
     {% load bootstrap4 %}
@@ -87,7 +88,7 @@
 
                     <li class="nav-item">
                         <a href="{% url 'dashboard' %}"
-                           class="nav-link active">
+                           class="nav-link {% if request.get_full_path == '/account/' %} active {% else %} {% endif %}">
                             <i class="icon icon-speedometer"></i> Dashboard
                         </a>
                     </li>
@@ -132,7 +133,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{% url 'cal:calendar' %}" class="nav-link {% if request.get_full_path == '/calendar/' %} active {% else %} {% endif %}">
                             <i class="fa fa-calendar"></i> Calendar
                         </a>
                     </li>

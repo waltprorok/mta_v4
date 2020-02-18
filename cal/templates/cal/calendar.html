@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="/static/cal/css/styles.css">
+{% extends "base-dashboard.html" %}
+
+{% block title %}Calendar {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    <h2>Calendar</h2>
+    <div class="card">
+        <div class="clearfix">
+            <a class="btn btn btn-success left" href="{% url 'cal:event_new' %}"> New Event </a>
+            <a class="btn btn btn-primary right" href="{% url 'cal:calendar' %}?{{ next_month }}"> Next Month </a>
+			<a class="btn btn btn-primary right" href="{% url 'cal:calendar' %}?{{ prev_month }}"> Previous Month </a>
+        </div>
+        {{ calendar }}
+    </div>
+</div>
+{% endblock %}
