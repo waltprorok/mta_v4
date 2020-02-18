@@ -4,15 +4,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from django.contrib.auth.decorators import login_required
 import calendar
 
 from .models import *
 from .utils import Calendar
 from .forms import EventForm
-
-
-def index(request):
-    return HttpResponse('hello')
 
 
 class CalendarView(generic.ListView):
@@ -52,6 +49,7 @@ def next_month(d):
     return month
 
 
+@login_required
 def event(request, event_id=None):
     instance = Event()
     if event_id:
