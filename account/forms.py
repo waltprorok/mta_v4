@@ -11,6 +11,7 @@ class LoginForm(forms.Form):
 
 
 class UserRegistrationForm(forms.ModelForm):
+    username = forms.CharField(required=True, widget=forms.TextInput())
     first_name = forms.CharField(required=True, widget=forms.TextInput())
     last_name = forms.CharField(required=True, widget=forms.TextInput())
     email = forms.CharField(required=True, widget=forms.TextInput())
@@ -19,7 +20,7 @@ class UserRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['username', 'first_name', 'last_name', 'email']
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -31,7 +32,7 @@ class UserRegistrationForm(forms.ModelForm):
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['username', 'first_name', 'last_name', 'email']
         fields_required = ['first_name', 'last_name', 'email']
 
 
