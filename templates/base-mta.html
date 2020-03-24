@@ -85,7 +85,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                            aria-haspopup="true" v-pre> Account</a>
                         <ul class="dropdown">
-                            <li class="disabled"><a href="#">{{ request.user.get_full_name }}</a></li>
+<!--                            <li class="disabled"><a href="#">{{ request.user.get_full_name }}</a></li>-->
                             <li><a href="{% url 'dashboard' %}"> Dashboard </a></li>
                             <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                         </ul>

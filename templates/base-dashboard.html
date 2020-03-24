@@ -15,7 +15,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'cal/css/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'webapp/vendor/simple-line-icons/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'webapp/vendor/simple-line-icons/css/simple-line-icons.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'webapp/vendor/font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/styles.css' %}">
 
@@ -30,12 +31,12 @@
             <i class="fa fa-bars"></i>
         </a>
 
-        <a class="navbar-brand" href="{% url 'dashboard' %}">
-            <img src="{% static 'webapp/imgs/logo-mta.png' %}" alt="logo">
-        </a>
-
         <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
             <i class="fa fa-bars"></i>
+        </a>
+
+        <a class="navbar-brand" href="{% url 'dashboard' %}">
+            <img src="{% static 'webapp/imgs/logo-mta.png' %}" alt="logo">
         </a>
 
         <ul class="navbar-nav ml-auto">
@@ -86,7 +87,7 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-title">Navigation Menu</li>
+<!--                    <li class="nav-title">Navigation Menu</li>-->
 
                     <li class="nav-item">
                         <a href="{% url 'dashboard' %}"
@@ -135,7 +136,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{% url 'cal:calendar' %}" class="nav-link {% if request.get_full_path == '/calendar/' %} active {% else %} {% endif %}">
+                        <a href="{% url 'cal:calendar' %}"
+                           class="nav-link {% if request.get_full_path == '/calendar/' %} active {% else %} {% endif %}">
                             <i class="fa fa-calendar"></i> Calendar
                         </a>
                     </li>
@@ -245,16 +247,18 @@
                 </ul>
             </nav>
         </div>
-    </div>
 
-    <div class="content">
-        <div class="container-fluid">
-            {% bootstrap_messages %}
-            <div class="row">
-                {% block content %}
-                {% endblock %}
+
+        <div class="content">
+            <div class="container-fluid">
+                {% bootstrap_messages %}
+                <div class="row">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -270,6 +274,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-146819127-1');
+
 
 
 
